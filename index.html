@@ -1,0 +1,405 @@
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Dark Mode</title>  
+
+    
+
+  <style type="text/css" media="all">
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+        :root{
+
+            --black :black;
+
+            --white: white;
+
+        }
+
+        *{
+
+            padding:0;
+
+            margin:0;
+
+            box-sizing: border-box;
+
+         }
+
+         
+
+       html{
+
+         scroll-behavior: smooth;
+
+       }
+
+       
+
+       body{
+
+        width:100%;
+
+        height:100%;
+
+        background: var(--black);
+
+        padding:0; 
+
+        margin: 0;
+
+        color: var(--white);
+
+        transition:0.7s ease-in-out;
+
+        font-family: 'Poppins', sans-serif;
+
+        }
+
+        
+
+        button{ 
+
+        cursor: pointer; 
+
+        border: 1px solid #555; 
+
+        text-align: center; 
+
+        padding: 5px; 
+
+        margin-left: 8px;  
+
+        } 
+
+        
+
+        .dark{ 
+
+        background-color: #222; 
+
+        color: #e6e6e6; 
+
+        } 
+
+        
+
+        .switch{
+
+         background:#333;
+
+         padding: 18px 12px;
+
+         width:80px;
+
+         border-radius: 20px;
+
+         height:12px;
+
+         overflow: hidden;
+
+         transition: 0.5s ease-in-out;
+
+        }
+
+        
+
+        #on{
+
+            background:silver;
+
+            padding:0px 15px;
+
+            overflow:hidden;
+
+            border-radius: 20px;
+
+            position: relative;
+
+            top:-12px;
+
+            left:-5px;
+
+            transition: 0.5s ease;
+
+        }
+
+        
+
+        #off{
+
+           background: #333;
+
+            padding:0px 15px;
+
+            overflow:hidden;
+
+            border-radius: 20px;
+
+            position: relative;
+
+            top:-12px;
+
+            transition: 0.5s ease-in-out;
+
+            animation:  offAnimation 0.5s ;
+
+            left:30px;
+
+        }
+
+    
+
+        @keyframes offAnimation{
+
+          0%{
+
+            background:silver;
+
+            left:-5px;
+
+          }
+
+          100%{
+
+            left:30px;
+
+            background:#333;
+
+          }
+
+        }
+
+        @keyframes onAnimation{
+
+          0%{
+
+            background:#333;
+
+            left:30px;
+
+          }
+
+          100%{
+
+            left:-5px;
+
+            background:silver;
+
+          }
+
+        }
+
+        
+
+        
+
+        h1{
+
+         color:green;
+
+        }
+
+        .container{
+
+          padding:70px 20px;
+
+        }
+
+        .decorate_switch{
+
+        /*   Add Your Css here */
+
+          margin:20px 0px;
+
+        }
+
+        
+
+  /* Making it responsive */
+
+  
+
+  @media screen and (max-width:599px){
+
+       .container{
+
+         width:94%;
+
+         margin:0px 3%;
+
+       }    
+
+   }
+
+ 
+
+  @media screen and (min-width:600px){
+
+     .container{
+
+        width:80%;
+
+        margin:0px 10%;
+
+     }      
+
+   }
+
+   
+
+ 
+
+  @media screen and (min-width:920px){
+
+      .switch{
+
+         cursor: pointer;
+
+      }
+
+   }
+
+   
+
+    </style> 
+
+</head>
+
+<body> 
+
+   <div class="container">
+
+    <h1>Sanmeet Singh</h1>
+
+    
+
+    <h3> Dark and Light Mode With switch</h3>
+
+    <br>
+
+   <!-- <h6>Note : Click on the button rather on the switch </h6>-->
+
+<br>
+
+<div class="decorate_switch">
+
+      <!--  On/Off Switch     -->
+
+      <div class="switch" id="switch">
+
+          <span id="on"></span>
+
+      </div>
+
+</div>
+
+</div>
+
+    <script>
+
+    var ison = false;
+
+      var switchy = document.getElementById('switch');
+
+      var element = document.getElementById('on');
+
+      
+
+     switchy.onclick = ()=>{
+
+       
+
+       if(ison == false){
+
+         on();
+
+       }
+
+       else{
+
+         off();
+
+       }
+
+     
+
+     }
+
+      
+
+      
+
+     function on(){
+
+          ison = true;
+
+          element.style.left = "25px";
+
+          switchy.innerHTML= '<span id="off" ></span>';
+
+          switchy.style.background = "silver";
+
+         
+
+       
+
+     // What to do when switch is on should be done here ! one punch man 
+
+     
+
+     var body  = document.querySelector('body');
+
+      
+
+      body.style.background = "white";
+
+      body.style.color =  "black";
+
+     
+
+      }
+
+      function off(){
+
+        ison = false;
+
+         element.style.left = "-5px";
+
+         switchy.innerHTML= '<span style=" animation: onAnimation 0.5s ;" id="on"></span>';
+
+         switchy.style.backgroundColor = "#333";
+
+           
+
+       // Write here command for off 
+
+           
+
+       var body  = document.querySelector('body');
+
+        
+
+        body.style.backgroundColor = "black";
+
+        body.style.color =  "white";
+
+        
+
+      }
+
+    </script> 
+
+</body> 
+
+  
+
+</html>
